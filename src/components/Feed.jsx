@@ -10,7 +10,6 @@ const Feed = () => {
     const dispatch = useDispatch();
 
     const getFeed = async () => {
-        if (feed) return;
         try {
             const res = await axios.get(BASE_URL + "/user/feed", {
                 withCredentials: true,
@@ -22,6 +21,7 @@ const Feed = () => {
     };
 
     useEffect(() => {
+        console.log('feed page ')
         getFeed();
     }, []);
     if (!feed) return;
